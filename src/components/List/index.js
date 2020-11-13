@@ -32,11 +32,11 @@ const movies = [
 
 function List() {
   return (
-    <div className="movies-list">
+    <section>
       {movies.map((movie) => (
           <ListItem {...movie} />
         ))}
-    </div>
+    </section>
   );
 }
 
