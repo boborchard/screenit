@@ -16,14 +16,14 @@ const StyledLabel = styled.label.attrs({
 })``;
 
 const StyledTextField = styled.input.attrs({
-  className: "flex items-center bg-white box-border text-2xl px-6 w-full focus:outline-none focus:border-indigo-500 rounded-lg text-brand-gray-dark"
+  className: "flex items-center bg-white box-border text-2xl px-6 w-full focus:outline-none focus:shadow-outline rounded-lg font-light placeholder-brand-gray-dark placeholder-opacity-100 focus:placeholder-brand-gray"
 })`
   height: 4.5rem;
   border: 1px solid #CCCCCC;
 `;
 
 const StyledSelectField = styled.select.attrs({
-  className: "block appearance-none w-full bg-white border border-brand-gray box-border text-2xl px-6 rounded focus:outline-none rounded-lg text-brand-gray-dark"
+  className: "block appearance-none w-full bg-white border border-brand-gray box-border text-2xl px-6 rounded focus:outline-none focus:shadow-outline rounded-lg font-light placeholder-brand-gray-dark placeholder-opacity-100 focus:placeholder-brand-gray"
 })`
   height: 4.5rem;
 `;
@@ -36,51 +36,53 @@ const StyledButton = styled.button.attrs({
 
 function AddMovieForm() {
   return (
-    <StyledForm>
-      <StyledFormGroup>
-        <StyledLabel>Name</StyledLabel>
-        <div className="block relative w-full">
-          <StyledTextField type="text" name="name" placeholder="Name of the movie" />
-        </div>
-      </StyledFormGroup>
-
-      <StyledFormGroup>
-        <StyledLabel>Category</StyledLabel>
-        <div className="block relative w-full">
-          <StyledSelectField name="category">
-            <option value="">Select a category</option>
-            <option value="action-adventure">Action/Adventure</option>
-            <option value="comedy">Comedy</option>
-            <option value="drama">Drama</option>
-          </StyledSelectField>
-          <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center px-2 text-gray-700">
-            <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 12L0.0717965 4.76837e-07L13.9282 4.76837e-07L7 12Z" fill="#CCCCCC"/>
-            </svg>
+    <section>
+      <StyledForm>
+        <StyledFormGroup>
+          <StyledLabel>Name</StyledLabel>
+          <div className="block relative w-full">
+            <StyledTextField type="text" name="name" placeholder="Name of the movie" />
           </div>
-        </div>
-      </StyledFormGroup>
+        </StyledFormGroup>
 
-      <StyledFormGroup>
-        <StyledLabel>Rating</StyledLabel>
-        <StarRating
-          name="rating"
-          containerClassName="flex flex-row items-center w-full justify-end"
-          count={5}
-          initialRating={0}
-          emptyColor="#CCCCCC"
-          activeColor="#FFC93D"
-          hoverColor="#FFC93D"
-          outerRadius={45}
-          innerRadius={25}
-          size={32}
-        />
-      </StyledFormGroup>
+        <StyledFormGroup>
+          <StyledLabel>Category</StyledLabel>
+          <div className="block relative w-full">
+            <StyledSelectField name="category">
+              <option value="">Select a category</option>
+              <option value="action-adventure">Action/Adventure</option>
+              <option value="comedy">Comedy</option>
+              <option value="drama">Drama</option>
+            </StyledSelectField>
+            <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center px-2 text-gray-700">
+              <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 12L0.0717965 4.76837e-07L13.9282 4.76837e-07L7 12Z" fill="#CCCCCC"/>
+              </svg>
+            </div>
+          </div>
+        </StyledFormGroup>
 
-      <StyledFormGroup>
-        <StyledButton>Add Movie</StyledButton>
-      </StyledFormGroup>
-    </StyledForm>
+        <StyledFormGroup>
+          <StyledLabel>Rating</StyledLabel>
+          <StarRating
+            name="rating"
+            containerClassName="flex flex-row items-center w-full justify-end"
+            count={5}
+            initialRating={0}
+            emptyColor="#CCCCCC"
+            activeColor="#FFC93D"
+            hoverColor="#FFC93D"
+            outerRadius={45}
+            innerRadius={25}
+            size={32}
+          />
+        </StyledFormGroup>
+
+        <StyledFormGroup>
+          <StyledButton>Add Movie</StyledButton>
+        </StyledFormGroup>
+      </StyledForm>
+    </section>
   );
 }
 
