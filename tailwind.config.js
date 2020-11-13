@@ -10,7 +10,8 @@ module.exports = {
     inset: {
       '0': 0,
       auto: 'auto',
-      '2': '1.5rem'
+      '2': '1.5rem',
+      '3': '2.5rem'
     },
     extend: {
       colors: {
