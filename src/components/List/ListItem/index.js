@@ -11,6 +11,8 @@ function ListItem(movie) {
         color="#61A0FF"
         maxInitials={3}
         size={64}
+        textSizeRatio={2.5}
+        textMarginRatio={.2}
       />
       <div className="flex-shrink pl-6 w-3/5 pr-6">
         <h2 className="font-medium text-2xl truncate w-full max-w-full">{movie.name}</h2>
