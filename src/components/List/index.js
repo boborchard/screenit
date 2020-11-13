@@ -21,9 +21,13 @@ class List extends React.Component{
   render(){
     return (
       <section>
-        {this.state.data.map((movie) => (
-            <ListItem {...movie} />
-          ))}
+        {
+          this.state.data
+            .sort((a, b) => a.rating < b.rating ? 1 : -1)
+            .map((movie, index) => (
+              <ListItem key={index} {...movie} />
+            ))
+        }
       </section>
     );
   }

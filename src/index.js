@@ -11,10 +11,12 @@ import './tailwind.output.css';
 
 import ListMovies from './pages/List';
 import AddMovies from './pages/Add';
+import EditMovie from './pages/Edit';
 
 ReactDOM.render(
   <Router>
     <Switch>
+      <Route path="/edit/:id" component={ EditMovie } />
       <Route path="/add" component={ AddMovies } />
       <Route path="/" component={ ListMovies } />
     </Switch>

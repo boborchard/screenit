@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
 import Avatar from 'react-avatar';
 import StarRating from 'react-svg-star-rating';
 
 function ListItem(movie) {
   return (
-    <div className="flex items-center justify-items-stretch px-10 py-8 border-t border-gray w-full">
+    <Link to={`/edit/${movie.id}`} className="flex items-center justify-items-stretch px-10 py-8 border-t border-gray w-full">
       <Avatar
         name={movie.name.replace(/The|[^a-zA-Z ]/g, "")}
         src={movie.avatar}
@@ -33,7 +34,7 @@ function ListItem(movie) {
           size={32}
         />
       </div>
-    </div>
+    </Link>
   );
 }
 
