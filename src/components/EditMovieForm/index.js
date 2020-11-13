@@ -31,9 +31,15 @@ const StyledSelectField = styled.select.attrs({
 `;
 
 const StyledButton = styled.button.attrs({
-  className: "text-white box-border font-medium text-2xl text-center px-8 h-16 w-full rounded-lg bg-gradient-to-b from-brand-blue to-brand-blue-dark border border-brand-blue-dark mb-6"
+  className: "text-white box-border font-medium text-2xl text-center px-8 h-16 w-full rounded-lg bg-gradient-to-b from-brand-blue to-brand-blue-dark border border-brand-blue-dark mb-6 mr-4"
 })`
   box-shadow: 0px 2px 4px rgba(97, 160, 255, 0.5), 0px 4px 8px rgba(97, 160, 255, 0.25);
+`;
+
+const StyledDeleteButton = styled.button.attrs({
+  className: "text-white box-border font-medium text-2xl text-center px-8 h-16 w-full rounded-lg bg-gradient-to-b from-brand-red to-brand-red-dark border border-brand-red-dark mb-6"
+})`
+  box-shadow: 0px 2px 4px rgba(255, 68, 51, 0.5), 0px 4px 8px rgba(209, 58, 38, 0.25);
 `;
 
 class EditMovieForm extends React.Component {
@@ -49,6 +55,7 @@ class EditMovieForm extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleOnRatingSelect = this.handleOnRatingSelect.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
   }
 
   componentDidMount(){
@@ -88,10 +95,17 @@ class EditMovieForm extends React.Component {
     }
     axios.put(`${this.apiUrl}/${this.props.id}`, movie)
        .then((res) => {
-          console.log('Successfully updated ' + this.state.name + ' on the list.');
           this.setState({ redirect: true });
        });
+    event.preventDefault();
+  }
 
+  handleRemove(event) {
+    console.log('Made it to the handleRemove function')
+    axios.delete(`${this.apiUrl}/${this.props.id}`)
+       .then((res) => {
+          this.setState({ redirect: true });
+       });
     event.preventDefault();
   }
 
@@ -117,9 +131,9 @@ class EditMovieForm extends React.Component {
             <div className="block relative w-full">
               <StyledSelectField name="category" value={this.state.category} onChange={this.handleInputChange}>
                 <option value="">Select a category</option>
-                <option value="action-adventure">Action/Adventure</option>
-                <option value="comedy">Comedy</option>
-                <option value="drama">Drama</option>
+                <option value="Action/Adventure">Action/Adventure</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Drama">Drama</option>
               </StyledSelectField>
               <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center px-2 text-gray-700">
                 <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -147,7 +161,10 @@ class EditMovieForm extends React.Component {
           </StyledFormGroup>
 
           <div className="text-center">
-            <StyledButton type="submit">Update Movie</StyledButton>
+            <div className="flex items-center">
+              <StyledButton type="submit">Update Movie</StyledButton>
+              <StyledDeleteButton onClick={ this.handleRemove }>Remove Movie</StyledDeleteButton>
+            </div>
             <Link to="/" className="relative leading-6 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900">Cancel and go back</Link>
           </div>
         </form>

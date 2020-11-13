@@ -19,6 +19,8 @@ module.exports = {
         'brand-gray-dark': '#AAAAAA',
         'brand-blue': '#94BFFF',
         'brand-blue-dark': '#61A0FF',
+        'brand-red': '#ff4433',
+        'brand-red-dark': '#d13a26'
       }
     },
   },

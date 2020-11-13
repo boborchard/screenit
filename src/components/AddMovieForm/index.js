@@ -105,9 +105,9 @@ class AddMovieForm extends React.Component {
             <div className="block relative w-full">
               <StyledSelectField name="category" value={this.state.category} onChange={this.handleInputChange}>
                 <option value="">Select a category</option>
-                <option value="action-adventure">Action/Adventure</option>
-                <option value="comedy">Comedy</option>
-                <option value="drama">Drama</option>
+                <option value="Action/Adventure">Action/Adventure</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Drama">Drama</option>
               </StyledSelectField>
               <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center px-2 text-gray-700">
                 <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
