@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './tailwind.output.css';
-import Layout from './components/Layout';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 
+import './tailwind.output.css';
+
+import ListMovies from './pages/List';
+import AddMovies from './pages/Add';
+
 ReactDOM.render(
-  <React.StrictMode>
-    <Layout />
-  </React.StrictMode>,
+  <Router>
+    <Switch>
+      <Route path="/add" component={ AddMovies } />
+      <Route path="/" component={ ListMovies } />
+    </Switch>
+  </Router>,
   document.getElementById('root')
 );
 
