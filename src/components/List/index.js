@@ -21,8 +21,8 @@ class List extends React.Component{
   render(){
     return (
       <section>
-        {this.state.data.map((movie) => (
-            <ListItem {...movie} />
+        {this.state.data.map((movie, index) => (
+            <ListItem key={index} {...movie} />
           ))}
       </section>
     );
