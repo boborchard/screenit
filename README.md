@@ -2,6 +2,10 @@
 
 This project is the result of my code challenge with Planning Center. If you have any questions, please send me an email and I'll get an answer right over to you.
 
+## Previewing this project
+
+I've built and deployed a preview of this branch here: https://screen-it.vercel.app/
+
 ## Running this project
 
 You'll find two branches in this repository:
