@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from "styled-components";
 
 const StyledHeader = styled.header.attrs({
@@ -13,12 +14,10 @@ const StyledLogo = styled.h1.attrs({
   font-size: 2.5rem;
 `;
 
-function Header() {
-  return (
-    <StyledHeader>
-      <StyledLogo>Screen it</StyledLogo>
-    </StyledHeader>
-  );
-}
+const Header = () => (
+  <StyledHeader>
+    <StyledLogo>Screen it</StyledLogo>
+  </StyledHeader>
+);
 
 export default Header;
