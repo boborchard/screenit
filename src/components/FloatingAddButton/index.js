@@ -1,6 +1,7 @@
+import React from 'react';
 import { Link } from "react-router-dom";
 
-function FloatingAddButton() {
+const FloatingAddButton = () => {
   return (
     <Link
       to="/add"
