@@ -1,28 +1,24 @@
-import React from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import {
+  getAllMovies
+} from '../../api/MovieAPI'
 import ListItem from './ListItem'
 
-class List extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      data: []
+const List = () => {
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    const onSuccess = (res) => {
+      setData(res.data);
     }
-    this.apiUrl = 'https://5fadd4f12ec98b0016048b4a.mockapi.io/api/v1/movies'
-  }
 
-  componentDidMount(){
-    axios.get(this.apiUrl)
-      .then((res) => {
-        this.setState({data:res.data});
-      });
-  }
+    getAllMovies(onSuccess);
+  }, []);
 
-  render(){
-    return (
+  return (
       <section>
         {
-          this.state.data
+          data
             .sort((a, b) => a.rating < b.rating ? 1 : -1)
             .map((movie, index) => (
               <ListItem key={index} {...movie} />
@@ -30,7 +26,6 @@ class List extends React.Component{
         }
       </section>
     );
-  }
 }
 
-export default List;
+export default List
