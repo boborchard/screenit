@@ -1,7 +1,8 @@
+import React from 'react';
 import Header from '../components/Header';
 import AddMovieForm from '../components/AddMovieForm';
 
-function Add() {
+const Add = () => {
   return (
     <>
       <Header />
