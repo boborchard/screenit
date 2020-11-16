@@ -6,6 +6,8 @@ import {
 } from "react-router-dom";
 import styled from "styled-components";
 import StarRating from 'react-svg-star-rating'
+import {
+  UIButton } from '../StyleGuide'
 
 const StyledFormGroup = styled.div.attrs({
   className: "flex items-center justify-between mb-6"
@@ -162,7 +164,7 @@ class EditMovieForm extends React.Component {
 
           <div className="text-center">
             <div className="flex items-center">
-              <StyledButton type="submit">Update Movie</StyledButton>
+              <UIButton type="submit">Update Movie</UIButton>
               <StyledDeleteButton onClick={ this.handleRemove }>Remove Movie</StyledDeleteButton>
             </div>
             <Link to="/" className="relative leading-6 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900">Cancel and go back</Link>
